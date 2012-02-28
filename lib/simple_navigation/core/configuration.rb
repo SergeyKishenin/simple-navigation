@@ -30,7 +30,7 @@ module SimpleNavigation
       @active_leaf_class = 'simple-navigation-active-leaf'
       @autogenerate_item_ids = true
       @id_generator = Proc.new {|id| id.to_s }
-      @name_generator = Proc.new {|name| name}
+      @name_generator = Proc.new {|name| name.match(/\s/) ? name.gsub!(/\s/, '&nbsp;') : name}
       @auto_highlight = true
     end
 
